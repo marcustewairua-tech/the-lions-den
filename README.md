@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Lion's Den</title>
+    <title>the lion's den</title>
     <style>
         body {
             background-color: #121212;
@@ -26,7 +26,7 @@
         .subtitle { font-style: italic; color: #888; margin-bottom: 20px; font-size: 0.9rem; text-transform: lowercase; }
         hr { border: 0; height: 1px; background: #333; margin: 20px 0; }
         ul { list-style-type: none; padding: 0; text-align: left; display: inline-block; }
-        li { padding: 8px 0; font-size: 1.1rem; border-bottom: 1px solid #222; }
+        li { padding: 8px 0; font-size: 1.1rem; border-bottom: 1px solid #222; text-transform: lowercase; }
         
         .play-btn {
             background-color: #d4af37;
@@ -35,11 +35,11 @@
             border: none;
             font-weight: bold;
             border-radius: 50px;
-            width: 100%;v
+            width: 100%;
             font-size: 1.2rem;
             cursor: pointer;
             margin-top: 30px;
-            text-transform: lowercase; /* Force the text to lowercase */
+            text-transform: lowercase;
             box-shadow: 0px 5px 15px rgba(212, 175, 55, 0.3);
             animation: pulse 2s infinite;
         }
@@ -70,20 +70,22 @@
             <li>🌐 why am i focused on my spatial awareness?</li>
         </ul>
 
-        <audio id="askfirmation101.mp3Audio">
-            <source src="askfirmations101.mp3" type="audio/mpeg">
+        <audio id="Askfirmations101">
+            <source src="Askfirmations101.mp3" type="audio/mpeg">
         </audio>
 
         <button class="play-btn" onclick="playAudio()">
-            🔊 activate askfirmations101.mp3Audio
+            🔊 activate Askfirmations101
         </button>
     </div>
 
     <script>
         function playAudio() {
-            var audio = document.getElementById("askfirmation101.mp3Audio");
+            // Script now looks for the specific Capital-A ID
+            var audio = document.getElementById("Askfirmations101");
+            audio.currentTime = 0;
             audio.play().catch((error) => {
-                alert("diagnostic: " + error.name + "\ncheck file name or silent switch.");
+                alert("The Den is silent: " + error.message);
             });
         }
     </script>
