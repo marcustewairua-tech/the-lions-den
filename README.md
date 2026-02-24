@@ -88,12 +88,4 @@
         }
     </script>
 </body>
-</html>            }).catch((error) => {
-                // The Safety Alert
-                alert("DIAGNOSTIC: " + error.name + "\n\n1. Check if the file is named EXACTLY 'askfirmations101.mp3' on GitHub.\n2. Ensure your phone is NOT on silent mode.\n3. Tap the screen once before hitting play.");
-            });
-        }
-    </script>
-
-</body>
 </html>
