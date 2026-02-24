@@ -6,48 +6,71 @@
     <title>The Lion's Den</title>
     <style>
         body {
-            background-color: #1a1a1a;
+            background-color: #121212;
             color: #d4af37;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
             text-align: center;
             padding: 20px;
+            margin: 0;
         }
         .container {
             border: 2px solid #d4af37;
-            padding: 30px;
-            border-radius: 15px;
-            max-width: 500px;
-            margin: auto;
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+            padding: 25px;
+            border-radius: 20px;
+            max-width: 450px;
+            margin: 20px auto;
+            background-color: #1a1a1a;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
-        h1 { text-transform: uppercase; letter-spacing: 3px; }
-        ul { list-style-type: none; padding: 0; text-align: left; line-height: 2; }
-        li { border-bottom: 1px solid #333; padding: 5px 0; }
-        
+        h1 { 
+            text-transform: uppercase; 
+            letter-spacing: 4px; 
+            margin-bottom: 5px;
+            font-size: 1.8rem;
+        }
+        .subtitle {
+            font-style: italic;
+            color: #888;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+        }
+        hr { border: 0; height: 1px; background: #333; margin: 20px 0; }
+        ul { 
+            list-style-type: none; 
+            padding: 0; 
+            text-align: left; 
+            display: inline-block;
+        }
+        li { 
+            padding: 8px 0;
+            font-size: 1.1rem;
+            border-bottom: 1px solid #222;
+        }
         .play-btn {
             background-color: #d4af37;
-            color: #1a1a1a;
+            color: #121212;
             padding: 20px;
             border: none;
             font-weight: bold;
             border-radius: 50px;
             width: 100%;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             cursor: pointer;
-            margin-top: 20px;
+            margin-top: 30px;
             text-transform: uppercase;
-            box-shadow: 0px 4px 15px rgba(212, 175, 55, 0.5);
+            box-shadow: 0px 5px 15px rgba(212, 175, 55, 0.3);
+            transition: transform 0.2s;
         }
-        .play-btn:active { transform: scale(0.98); }
+        .play-btn:active { transform: scale(0.95); }
     </style>
 </head>
 <body>
 
     <div class="container">
         <h1>The Lion's Den</h1>
-        <p><i>Timeline Shifting: JKD Roster 2.0</i></p>
+        <div class="subtitle">Timeline Shifting: JKD Roster 2.0</div>
         
-        <hr style="border: 0; height: 1px; background: #d4af37;">
+        <hr>
 
         <ul>
             <li>🏆 Why am I financially independent?</li>
@@ -74,9 +97,18 @@
     <script>
         function playAudio() {
             var audio = document.getElementById("askfirmationAudio");
-            audio.play().catch(function(error) {
-                console.log("Play failed. Check file name match.");
-                alert("Check if file is named askfirmations101.mp3 exactly!");
+            
+            // diagnostic check to see if the element exists
+            if (!audio) {
+                alert("Technical Error: Audio element not found in code.");
+                return;
+            }
+
+            audio.play().then(() => {
+                console.log("Audio playing successfully.");
+            }).catch((error) => {
+                // The Safety Alert
+                alert("DIAGNOSTIC: " + error.name + "\n\n1. Check if the file is named EXACTLY 'askfirmations101.mp3' on GitHub.\n2. Ensure your phone is NOT on silent mode.\n3. Tap the screen once before hitting play.");
             });
         }
     </script>
