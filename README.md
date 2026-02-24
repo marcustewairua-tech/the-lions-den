@@ -22,34 +22,16 @@
             background-color: #1a1a1a;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
-        h1 { 
-            text-transform: uppercase; 
-            letter-spacing: 4px; 
-            margin-bottom: 5px;
-            font-size: 1.8rem;
-        }
-        .subtitle {
-            font-style: italic;
-            color: #888;
-            margin-bottom: 20px;
-            font-size: 0.9rem;
-        }
+        h1 { text-transform: lowercase; letter-spacing: 2px; margin-bottom: 5px; font-size: 1.8rem; }
+        .subtitle { font-style: italic; color: #888; margin-bottom: 20px; font-size: 0.9rem; text-transform: lowercase; }
         hr { border: 0; height: 1px; background: #333; margin: 20px 0; }
-        ul { 
-            list-style-type: none; 
-            padding: 0; 
-            text-align: left; 
-            display: inline-block;
-        }
-        li { 
-            padding: 8px 0;
-            font-size: 1.1rem;
-            border-bottom: 1px solid #222;
-        }
+        ul { list-style-type: none; padding: 0; text-align: left; display: inline-block; }
+        li { padding: 8px 0; font-size: 1.1rem; border-bottom: 1px solid #222; }
+        
         .play-btn {
             background-color: #d4af37;
             color: #121212;
-            padding: 20px;
+            padding: 22px;
             border: none;
             font-weight: bold;
             border-radius: 50px;
@@ -57,32 +39,35 @@
             font-size: 1.2rem;
             cursor: pointer;
             margin-top: 30px;
-            text-transform: uppercase;
+            text-transform: lowercase; /* Force the text to lowercase */
             box-shadow: 0px 5px 15px rgba(212, 175, 55, 0.3);
-            transition: transform 0.2s;
+            animation: pulse 2s infinite;
         }
-        .play-btn:active { transform: scale(0.95); }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(212, 175, 55, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+        }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h1>The Lion's Den</h1>
-        <div class="subtitle">Timeline Shifting: JKD Roster 2.0</div>
-        
+        <h1>the lion's den</h1>
+        <div class="subtitle">timeline shifting: jkd roster 2.0</div>
         <hr>
-
         <ul>
-            <li>🏆 Why am I financially independent?</li>
-            <li>💪 Why am I in the best shape of my life?</li>
-            <li>🥊 Why am I good at boxing?</li>
-            <li>🏊 Why am I good at swimming?</li>
-            <li>🔥 Why do I love to exercise?</li>
-            <li>📈 Why am I successful at everything I do?</li>
-            <li>🧘 Why am I kind, patient and calm?</li>
-            <li>🕊️ Why am I slow to anger?</li>
-            <li>✨ Why am I living the best version of myself?</li>
-            <li>🌐 Why am I focused on my spatial awareness?</li>
+            <li>🏆 why am i financially independent?</li>
+            <li>💪 why am i in the best shape of my life?</li>
+            <li>🥊 why am i good at boxing?</li>
+            <li>🏊 why am i good at swimming?</li>
+            <li>🔥 why do i love to exercise?</li>
+            <li>📈 why am i successful at everything i do?</li>
+            <li>🧘 why am i kind, patient and calm?</li>
+            <li>🕊️ why am i slow to anger?</li>
+            <li>✨ why am i living the best version of myself?</li>
+            <li>🌐 why am i focused on my spatial awareness?</li>
         </ul>
 
         <audio id="askfirmationAudio">
@@ -90,23 +75,20 @@
         </audio>
 
         <button class="play-btn" onclick="playAudio()">
-            🔊 ACTIVATE ASKFIRMATIONS
+            🔊 activate askfirmations 101
         </button>
     </div>
 
     <script>
         function playAudio() {
             var audio = document.getElementById("askfirmationAudio");
-            
-            // diagnostic check to see if the element exists
-            if (!audio) {
-                alert("Technical Error: Audio element not found in code.");
-                return;
-            }
-
-            audio.play().then(() => {
-                console.log("Audio playing successfully.");
-            }).catch((error) => {
+            audio.play().catch((error) => {
+                alert("diagnostic: " + error.name + "\ncheck file name or silent switch.");
+            });
+        }
+    </script>
+</body>
+</html>            }).catch((error) => {
                 // The Safety Alert
                 alert("DIAGNOSTIC: " + error.name + "\n\n1. Check if the file is named EXACTLY 'askfirmations101.mp3' on GitHub.\n2. Ensure your phone is NOT on silent mode.\n3. Tap the screen once before hitting play.");
             });
